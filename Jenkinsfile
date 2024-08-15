@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git url: 'https://github.com/yourusername/yourrepository.git', branch: 'main'
+                git url: 'https://github.com/Pratik-Pardeshi/newone.git', branch: 'main'
             }
         }
         stage('Move index.html to Ansible Server') {
