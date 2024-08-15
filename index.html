@@ -7,16 +7,15 @@
     <title>Pratik's GitHub Search App</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-        * {
-            box-sizing: border-box;
-            margin: 0;
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
             padding: 0;
+            margin: 0;
         }
-        form {
-            margin: auto;
-            max-width: 50%;
-            margin-bottom: 20px;
-        }
+
         h1 {
             color: #00a136;
             font-size: 2.5rem;
@@ -25,11 +24,23 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
         }
+
         h1:hover {
             transform: scale(1.1);
         }
+
+        form {
+            margin: auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
         .inputForm input {
-            width: 80%;
+            width: calc(100% - 20px);
             margin: auto;
             margin-top: 20px;
             display: block;
@@ -40,24 +51,29 @@
             font-weight: bold;
             padding: 10px;
         }
+
         .inputForm input::placeholder {
             color: #666;
             font-weight: bold;
         }
+
         .inputForm input:focus {
             outline: none;
             border-color: #007bff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
+
         .card {
-            max-width: 50%;
+            max-width: 600px;
             background-color: rgb(141, 240, 243);
-            border-radius: 20px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
-            padding: 2rem;
+            padding: 1.5rem;
             margin: auto;
+            margin-bottom: 20px;
         }
+
         .avatar {
             border-radius: 50%;
             border: 4px solid #00a136;
@@ -65,26 +81,31 @@
             width: 150px;
             transition: transform 0.3s ease-in-out;
         }
+
         .avatar:hover {
             transform: scale(1.1);
         }
+
         .user-info {
             color: #333;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             padding: 1rem;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
         .user-info h2 {
             margin-top: 0;
             font-size: 1.5rem;
             color: #007bff;
         }
+
         .user-info p {
             font-size: 1rem;
             margin-top: 0.5rem;
         }
+
         .user-info ul {
             list-style-type: none;
             display: flex;
@@ -93,15 +114,18 @@
             max-width: 400px;
             margin-top: 1rem;
         }
+
         .user-info ul li {
             display: flex;
             align-items: center;
         }
+
         .user-info ul li strong {
             font-size: 0.9rem;
             margin-left: 0.5rem;
             color: #007bff;
         }
+
         .repo {
             text-decoration: none;
             color: #fff;
@@ -114,17 +138,31 @@
             border-radius: 9px;
             transition: background-color 0.3s, transform 0.2s;
         }
+
         .repo:hover {
             background-color: #cc0c00;
             transform: scale(1.05);
         }
+
+        footer {
+            background-color: #00a136;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         @media (max-width: 500px) {
             .card {
                 flex-direction: column;
                 align-items: center;
             }
+
             .inputForm {
-                max-width: 400px;
+                max-width: 90%;
             }
         }
     </style>
@@ -224,6 +262,9 @@
             }
         });
     </script>
+    <footer>
+        <p>&copy; 2024 Pratik Pardeshi</p>
+    </footer>
 </body>
 
 </html>
