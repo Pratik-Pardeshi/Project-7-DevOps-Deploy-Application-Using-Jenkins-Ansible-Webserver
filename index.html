@@ -1,270 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pratik's GitHub User Search App</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f9;
-            color: #333;
-            padding: 0;
-            margin: 0;
-        }
-
-        h1 {
-            color: #00a136;
-            font-size: 2.5rem;
-            margin: auto;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        h1:hover {
-            transform: scale(1.1);
-        }
-
-        form {
-            margin: auto;
-            max-width: 600px;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .inputForm input {
-            width: calc(100% - 20px);
-            margin: auto;
-            margin-top: 20px;
-            display: block;
-            background-color: #f0e1c6;
-            border: 2px solid #00a136;
-            border-radius: 7px;
-            color: #333;
-            font-weight: bold;
-            padding: 10px;
-        }
-
-        .inputForm input::placeholder {
-            color: #666;
-            font-weight: bold;
-        }
-
-        .inputForm input:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .card {
-            max-width: 600px;
-            background-color: rgb(141, 240, 243);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            padding: 1.5rem;
-            margin: auto;
-            margin-bottom: 20px;
-        }
-
-        .avatar {
-            border-radius: 50%;
-            border: 4px solid #00a136;
-            height: 150px;
-            width: 150px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .avatar:hover {
-            transform: scale(1.1);
-        }
-
-        .user-info {
-            color: #333;
-            margin-left: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .user-info h2 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            color: #007bff;
-        }
-
-        .user-info p {
-            font-size: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .user-info ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: space-between;
-            padding: 0;
-            max-width: 400px;
-            margin-top: 1rem;
-        }
-
-        .user-info ul li {
-            display: flex;
-            align-items: center;
-        }
-
-        .user-info ul li strong {
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
-            color: #007bff;
-        }
-
-        .repo {
-            text-decoration: none;
-            color: #fff;
-            background-color: #ff1500;
-            font-size: 0.9rem;
-            padding: 0.4rem 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-            border-radius: 9px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .repo:hover {
-            background-color: #cc0c00;
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: #00a136;
-            color: #ffffff;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 500px) {
-            .card {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .inputForm {
-                max-width: 90%;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps CI/CD Project</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <form class="inputForm" id="userInput">
-        <h1>Pratik's GitHub Search App</h1>
-        <input
-            type="text"
-            id="inputBox"
-            autocomplete="off"
-            placeholder="Search a GitHub User"
-        />
-    </form>
-    <main id="main"></main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
-        integrity="ha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
-        crossorigin="anonymous"></script>
-    <script>
-        let api = "https://api.github.com/users/";
-        let main = document.getElementById("main");
-        let inputForm = document.getElementById("userInput");
-        let inputBox = document.getElementById("inputBox");
+    <header>
+        <nav>
+            <div class="logo">DevOps CI/CD Project</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Project 7: Jenkins Ansible Intigration with SSH</h1>
+            <p>Automate, integrate, and deploy seamlessly with Jenkins, Ansible, Web-Server, Developer Server and AWS EC2.</p>
+            <a href="#project" class="cta-button">Discover More</a>
+        </div>
+    </header>
 
-        const userGetFunction = (name) => {
-            axios(api + name)
-                .then((response) => {
-                    userCard(response.data);
-                    repoGetFunction(name);
-                })
-                .catch((err) => {
-                    if (err.response.status == 404) {
-                        errorFunction("No profile with this username");
-                    }
-                });
-        };
+    <main>
+        <section id="project" class="section project-details">
+            <h2>Project Overview</h2>
+            <p>This DevOps CI/CD project automates the deployment pipeline using Jenkins, Ansible,Web server, Developer Server and AWS EC2 instances. The setup ensures a seamless integration and delivery process, streamlining code deployment and updates.</p>
+            
+            <h3>Project Components</h3>
+            <ul>
+                <li><strong>EC2 Instances:</strong>
+                    <ul>
+                        <li><strong>Jenkins-Server:</strong> Manages CI/CD pipelines and automates builds.</li>
+                        <li><strong>Ansible-Server:</strong> Executes playbooks to deploy code to the web server.</li>
+                        <li><strong>Web-Server:</strong> Hosts the deployed application or website.</li>
+                        <li><strong>Developer:</strong> Where code changes are made and pushed to GitHub.</li>
+                    </ul>
+                </li>
+                <li><strong>Tools Used:</strong>
+                    <ul>
+                        <li><strong>Jenkins:</strong> Automates building, testing, and deploying code.</li>
+                        <li><strong>Ansible:</strong> Manages configuration and deployment tasks.</li>
+                        <li><strong>GitHub:</strong> Hosts the code repository and triggers Jenkins builds.</li>
+                    </ul>
+                </li>
+                <li><strong>Deployment Process:</strong>
+                    <ul>
+                        <li>Code is pushed to GitHub by the developer.</li>
+                        <li>Jenkins detects the push, builds the code, and prepares deployment artifacts.</li>
+                        <li>Jenkins sends the artifacts to the Ansible server.</li>
+                        <li>Ansible executes a playbook to deploy the code to the web server.</li>
+                    </ul>
+                </li>
+            </ul>
 
-        const repoGetFunction = (name) => {
-            axios(api + name + "/repos?sort=created")
-                .then((response) => {
-                    repoCardFunction(response.data);
-                })
-                .catch((err) => {
-                    errorFunction("Problem fetching repos");
-                });
-        };
+            <h3>Detailed Steps</h3>
+            <ol>
+                <li><strong>Create EC2 Instances:</strong> Set up four EC2 instances for Jenkins, Ansible, Web, and Developer roles.</li>
+                <li><strong>Install Jenkins:</strong> On the Jenkins server, install Java, Jenkins, and configure it to manage builds.</li>
+                <li><strong>Install Ansible:</strong> On the Ansible server, install Ansible and configure it to manage deployments.</li>
+                <li><strong>Set Up Passwordless SSH:</strong> Configure SSH keys for passwordless connections between Jenkins, Ansible, and the Web server.</li>
+                <li><strong>Create Ansible Playbook:</strong> Develop a playbook to deploy the code to the web server.</li>
+                <li><strong>Integrate with GitHub:</strong> Set up GitHub webhooks to trigger Jenkins jobs on code changes.</li>
+                <li><strong>Configure Jenkins Job:</strong> Set up Jenkins to build the code, send artifacts to Ansible, and run the playbook.</li>
+                <li><strong>Deploy and Test:</strong> Ensure the deployment pipeline works end-to-end by pushing code changes and verifying updates on the web server.</li>
+            </ol>
+        </section>
 
-        const userCard = (user) => {
-            let id = user.name || user.login;
-            let info = user.bio ? `<p>${user.bio}</p>` : "";
-            let cardElement = `
-                <div class="card">
-                    <div>
-                        <img src="${user.avatar_url}" alt="${user.name}" class="avatar">
-                    </div>
-                    <div class="user-info">
-                        <h2>${id}</h2>${info}
-                        <ul>
-                            <li>${user.followers} <strong>Followers</strong></li>
-                            <li>${user.following} <strong>Following</strong></li>
-                            <li>${user.public_repos} <strong>Repos</strong></li>
-                        </ul>
-                        <div id="repos"></div>
-                    </div>
-                </div>`;
-            main.innerHTML = cardElement;
-        };
+        <section id="about" class="section about">
+            <h2>About the Author</h2>
+            <p>This project was developed by Pratik Pardeshi, a skilled DevOps Engineer specializing in DevOps and cloud technologies. Connect with Pratik for insights on DevOps and continuous integration practices.</p>
+        </section>
 
-        const errorFunction = (error) => {
-            let cardHTML = `
-                <div class="card">
-                    <h1>${error}</h1>
-                </div>`;
-            main.innerHTML = cardHTML;
-        };
+        <section id="contact" class="section contact">
+            <h2>Connect With Me</h2>
+            <p>For more information, reach out me via <a href="https://www.linkedin.com/in/pratik-pardeshi-424288272/?originalSubdomain=in">Linkedin</a>.</p>
+        </section>
+    </main>
 
-        const repoCardFunction = (repos) => {
-            let reposElement = document.getElementById("repos");
-            for (let i = 0; i < 5 && i < repos.length; i++) {
-                let repo = repos[i];
-                let repoEl = document.createElement("a");
-                repoEl.classList.add("repo");
-                repoEl.href = repo.html_url;
-                repoEl.target = "_blank";
-                repoEl.innerText = repo.name;
-                reposElement.appendChild(repoEl);
-            }
-        };
-
-        inputForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            let user = inputBox.value;
-            if (user) {
-                userGetFunction(user);
-                inputBox.value = "";
-            }
-        });
-    </script>
     <footer>
-        <p>&copy; 2024 Pratik Pardeshi</p>
+        <p>Created by Pratik Pardeshi. All rights reserved.</p>
     </footer>
-</body>
 
+    <script src="script.js"></script>
+
+    <style>
+        /* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(135deg, #0073e6, #00c853);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin: 0 1rem;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+/* Hero Section */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    padding: 4rem 1rem;
+    color: #fff;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.cta-button {
+    background: #ffeb3b;
+    color: #333;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.cta-button:hover {
+    background: #fdd835;
+}
+
+/* Main Sections */
+main {
+    padding: 2rem 1rem;
+}
+.section {
+    background: #fff;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.project-details h2, .about h2, .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0073e6;
+    padding-bottom: 0.5rem;
+}
+.project-details h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #0073e6;
+}
+.project-details p, .project-details ul, .project-details ol {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.project-details ul, .project-details ol {
+    margin-left: 1.5rem;
+}
+.project-details ul li {
+    margin-bottom: 0.5rem;
+}
+.project-details ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* About and Contact Sections */
+.about p, .contact p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.contact a {
+    color: #0073e6;
+    text-decoration: none;
+}
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+footer p {
+    margin: 0;
+}
+
+/* Smooth Scrolling - No specific CSS required */
+
+/* Scroll-to-Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: none; /* Hidden by default */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.scroll-to-top.visible {
+    display: block;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+.scroll-to-top:hover {
+    background-color: #005bb5;
+}
+
+/* Dynamic Content Updates */
+.update-info {
+    font-size: 0.9rem;
+    color: #0073e6;
+    margin-top: 1rem;
+}
+
+    </style>
+    <script>
+      // Smooth Scrolling
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Scroll-to-Top Button
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.textContent = 'Top';
+scrollToTopBtn.className = 'scroll-to-top';
+document.body.appendChild(scrollToTopBtn);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Example of Dynamic Content Updates
+const projectDetails = document.querySelector('.project-details');
+
+function updateProjectDetails() {
+    const date = new Date();
+    const updatedText = `Last updated on ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
+    
+    const updateElement = document.createElement('p');
+    updateElement.className = 'update-info';
+    updateElement.textContent = updatedText;
+
+    projectDetails.appendChild(updateElement);
+}
+
+updateProjectDetails();
+
+
+    </script>
+</body>
 </html>
