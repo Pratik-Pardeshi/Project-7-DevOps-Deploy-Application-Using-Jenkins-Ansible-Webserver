@@ -32,10 +32,10 @@ pipeline {
             steps {
                 script {
                     // Copy index.html to target server
-                    sh 'scp -i /var/lib/jenkins/.ssh/id_rsa index.html ansible@172.31.36.135:/tmp/index.html'
+                    sh 'scp -i /var/lib/jenkins/.ssh/id_rsa index.html ansible@172.31.34.36:/tmp/index.html'
 
                     // Run Ansible playbook
-                    sh 'ssh -i /var/lib/jenkins/.ssh/id_rsa ansible@172.31.36.135 "ansible-playbook /home/ansible/playbooks/deploy.yml"'
+                    sh 'ssh -i /var/lib/jenkins/.ssh/id_rsa ansible@172.31.34.36 "ansible-playbook /home/ansible/playbooks/deploy.yml"'
                 }
             }
         }
