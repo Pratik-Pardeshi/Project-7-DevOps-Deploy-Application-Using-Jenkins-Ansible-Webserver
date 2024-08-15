@@ -1,49 +1,39 @@
 pipeline {
     agent any
-
     environment {
-        GIT_REPO_URL = 'https://github.com/Pratik-Pardeshi/newone.git'
-        GIT_CREDENTIALS_ID = 'https://github.com/Pratik-Pardeshi/newone.git'
+        SSH_KEY = credentials('ansible-ssh-key') // Use the ID you provided in Jenkins
     }
-
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                // Clean up workspace and checkout the repository
-                deleteDir() // Clean up the workspace before checking out the code
-                checkout([$class: 'GitSCM',
-                          userRemoteConfigs: [[url: "${env.GIT_REPO_URL}", credentialsId: "${env.GIT_CREDENTIALS_ID}"]],
-                          branches: [[name: '*/main']]]) // Adjust the branch as needed
+                git url: 'https://github.com/yourusername/yourrepository.git', branch: 'main'
             }
         }
-
-        stage('Prepare') {
+        stage('Move index.html to Ansible Server') {
             steps {
                 script {
-                    // Ensure that index.html is present
-                    if (!fileExists('index.html')) {
-                        error "index.html not found in repository."
-                    }
+                    sh """
+                        scp -i ${SSH_KEY} index.html ansible@172.31.34.36:/tmp/index.html
+                    """
                 }
             }
         }
-
-        stage('Send File and Deploy') {
+        stage('Run Ansible Playbook') {
             steps {
                 script {
-                    // Copy index.html to target server
-                    sh 'scp -i /var/lib/jenkins/.ssh/id_rsa index.html ansible@172.31.34.36:/tmp/index.html'
-
-                    // Run Ansible playbook
-                    sh 'ssh -i /var/lib/jenkins/.ssh/id_rsa ansible@172.31.34.36 "ansible-playbook /home/ansible/playbooks/deploy.yml"'
+                    sh """
+                        ssh -i ${SSH_KEY} ansible@172.31.34.36 'ansible-playbook /home/ansible/playbooks/deploy.yml'
+                    """
                 }
             }
         }
     }
-
     post {
-        always {
-            echo 'Pipeline completed.'
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
