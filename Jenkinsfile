@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Pratik-Pardeshi/Project-7-DevOps-Deploy-Application-Using-Jenkins-Ansible-Webserver.git
-'
+                git branch: 'main', url: 'https://github.com/Pratik-Pardeshi/Project-7-DevOps-Deploy-Application-Using-Jenkins-Ansible-Webserver.git'
             }
         }
         stage('Send File to Ansible Server') {
