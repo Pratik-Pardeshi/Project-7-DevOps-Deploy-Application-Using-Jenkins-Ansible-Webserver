@@ -12,14 +12,14 @@ pipeline {
         stage('Send File to Ansible Server') {
             steps {
                 sh '''
-                scp -o StrictHostKeyChecking=no -i $SSH_KEY index.html ansible@172.31.46.150:/tmp/index.html
+                scp -o StrictHostKeyChecking=no -i $SSH_KEY index.html ansible@3.94.133.19:/tmp/index.html
                 '''
             }
         }
         stage('Run Ansible Playbook') {
             steps {
                 sh '''
-                ssh -o StrictHostKeyChecking=no -i $SSH_KEY ansible@172.31.46.150 'ansible-playbook /home/ansible/playbooks/deploy.yml'
+                ssh -o StrictHostKeyChecking=no -i $SSH_KEY ansible@3.94.133.19 'ansible-playbook /home/ansible/playbooks/deploy.yml'
                 '''
             }
         }
