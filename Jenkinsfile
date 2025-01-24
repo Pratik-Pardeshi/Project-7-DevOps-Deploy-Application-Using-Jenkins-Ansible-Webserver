@@ -12,7 +12,7 @@ pipeline {
         stage('Send File to Ansible Server') {
             steps {
                 sh '''
-                scp -o StrictHostKeyChecking=no -i $SSH_KEY index.html ansible@172.31.36.31:/tmp/index.html
+                scp -o StrictHostKeyChecking=no -i $SSH_KEY index.html ansible@172.31.15.242:/tmp/index.html
                 '''
             }
         }
