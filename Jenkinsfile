@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        SSH_KEY = credentials('ansible-ssh-key')
+        SSH_KEY = credentials('ansible')
     }
     stages {
         stage('Checkout') {
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Send File to Ansible Server') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ansible-ssh-key', keyFileVariable: 'SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ansible', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
                     scp -o StrictHostKeyChecking=no -i $SSH_KEY $WORKSPACE/index.html ansible@172.31.15.242:/tmp/index.html
                     '''
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ansible', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no -i $SSH_KEY ansible@172.31.36.31 'ansible-playbook -vvv /home/ansible/playbooks/deploy.yml'
+                    ssh -o StrictHostKeyChecking=no -i $SSH_KEY ansible@172.31.2.68 'ansible-playbook -vvv /home/ansible/playbooks/deploy.yml'
                     '''
                 }
             }
