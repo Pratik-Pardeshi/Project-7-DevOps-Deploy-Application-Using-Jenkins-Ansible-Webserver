@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Run Ansible Playbook') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ansible-ssh-key', keyFileVariable: 'SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ansible', keyFileVariable: 'SSH_KEY')]) {
                     sh '''
                     ssh -o StrictHostKeyChecking=no -i $SSH_KEY ansible@172.31.36.31 'ansible-playbook -vvv /home/ansible/playbooks/deploy.yml'
                     '''
